@@ -2,6 +2,8 @@ import asyncio
 import time
 import random
 
+import logging
+
 from .mock_event_handler import mock_random_time_handler as default_event_handler
 
 class event_driven_state_machine(object):
@@ -25,25 +27,15 @@ class event_driven_state_machine(object):
         self.report = []
 
     def watch(self, event, **Kargs):
-        print('adding ' + str(event))
+        """Explicitely watch for an event to occur"""
+        logging.debug(f"adding {event}")
         task = self.loop.create_task(self.add_event_handler(event, **Kargs))
         self.added_tasks.append(task)
 
-    async def add_event_handler(self, event, eventHandler=default_event_handler, **Kargs):
-        """Add service to the event pile"""
-        print('starting ' + str(event))
-        event_result = await default_event_handler(name=event, **Kargs)
-        self.event_pile.append(event_result)
-        print('ending ' + str(event))
-        return event_result
-    
     def wait_for_events_before_step(self, events, step, step_args):
-        """
-            Define the relation between event and setps
-            What is the list of event expected before triggering a step?
-        """
+        """Register a step has to be triggered once all events has occurred"""
 
-        print(f"{step} is waiting for events: {events} to be triggered")
+        logging.debug(f"{step} is waiting for events: {events} to be triggered")
 
         if step not in self.waiting_for:
             self.waiting_for[step] = events
@@ -55,14 +47,22 @@ class event_driven_state_machine(object):
 
             self.awaited_events[e][step] = step_args
 
+    async def add_event_handler(self, event, eventHandler=default_event_handler, **Kargs):
+        """Await for event then add then to the event pile"""
+        logging.debug(f"starting {event}")
+        event_result = await default_event_handler(name=event, **Kargs)
+        self.event_pile.append(event_result)
+        logging.debug(f"ending {event}")
+        return event_result
+
     def transition(self, event, future_step):
         """
-            Update the waiting_for dict
-            Return True if the future_step don't need to wait anymore return True
+            Can we trigger future_step knowing that "event" just occurred
+            Return True if the future_step don't need to wait anymore
             Return False otherwise
         """
 
-        print(f"{future_step} was waiting for {event} to be triggered")
+        logging.debug(f"{future_step} was waiting for {event} to be triggered")
 
         # Event has occurred remove from list
         self.waiting_for[future_step].remove(event)
@@ -76,7 +76,7 @@ class event_driven_state_machine(object):
 
     def step(self, event, expected_state="ok"):
         """
-        Manage the execution of the state machine
+        Manage the execution of the state machine when a new event occurred
             1. validate Transition for impacted dependencies
             2. if Transition => start process
             3. watch new process
@@ -111,16 +111,17 @@ class event_driven_state_machine(object):
 
             if len(self.event_pile) != 0:
                 event = self.readEventFromMessageQueue()
-                print("event ", event)
+                logging.debug(f"event : {event}")
 
                 self.step(event)
                 self.report.append(event)
 
+            # Update the loop
             self.added_tasks = [x for x in self.added_tasks if not x.done()]
 
             await asyncio.sleep(0)
 
-        print('done running tasks')
+        logging.debug('done running tasks')
 
         # extract the results from the tasks and return them
         results = [x.result() for x in self.added_tasks]
