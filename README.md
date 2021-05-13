@@ -6,3 +6,9 @@
 </p>
 
 State Machine is a mathematical concept deeply rooted in computer science. Many problems end up being some implementation of it. I dedicated the repository for my exploration with this concept using Python as the programming language.
+
+[You write the help message docopt write the code](./example_docopt/readme.md)
+
+[WIP: Introduction to AsyncoIO]()
+
+[WIP: My take on The state design pattern in Python]()

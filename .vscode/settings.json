@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "c:\\Users\\coued\\Projects\\pystatemachine\\venv\\Scripts\\python.exe",
+    "python.testing.pytestArgs": [
+        "test"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
+}
