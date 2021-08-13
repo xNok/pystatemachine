@@ -1,6 +1,13 @@
-# 5 Tips to to Create Better Command Line Interface
+# 5 Tips to Create Better Command Line 
 
-1. Create a Python virtual environnement to try this demos
+Welcome to the instructions for [5 Tips to Customise Python Command-Line Interfaces](https://betterprogramming.pub/5-tips-to-customise-python-command-line-interfaces-691b0b39f610?sk=5ac5a76c740bd04f5881af8a485a68a0).
+
+This repo is originally dedicated to Python State Machine. But as usual, when I start working side-projects, I get a lot of article ideas.
+
+## Setup
+
+
+1. Create a Python virtual environment to try the demos
 
 ```
 python -m venv venv
@@ -12,7 +19,7 @@ python -m venv venv
 source ./venv/Scripts/activate
 ```
 
-3. Install dependancies 
+3. Install dependencies 
 
 ```
 python -m pip install -r requirements.txt
@@ -50,7 +57,7 @@ python .\4_rc_file.py 1 2
 
 ## 4 Installing the Command Line
 
-`setup.py` and `5_setup.py`demonstrate how to install a command line
+`setup.py` and `5_setup.py` demonstrate how to install a command line
 
 ```
 python -m pip install -e .
@@ -62,7 +69,7 @@ Now you can call the command `foobar`
 foobar 2 3 --agg=max
 ```
 
-## 5 Making the command line extandable
+## 5 Making the command line extendable
 
 
 ```

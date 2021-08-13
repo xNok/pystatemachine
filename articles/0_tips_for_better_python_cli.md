@@ -2,8 +2,7 @@
 
 One very common usage of Python is to create toobox, to help you complete repeatable task. If you are reading this article I am sure that you when throuth the process of creating a automation script in Python. At some point, you started refactoring your script to make it a proper command line tool. Adding argument, configuration, prompt and instructions.
 
-Since it is such a commun task. I decided to compile and share my best trick I try to add to my command line whenever I create on.
-
+Since it is such a commun task. I decided to compile and share my best trick I try to add to my command line whenever I create one.
 
 ## 1 Choose the right tool to parse your arguments
 
@@ -311,3 +310,11 @@ python .\6_extandable.py 1 2 --agg=fancys
 ```
 
 ## Conclusion
+
+As you Python script grow into a full fledge command line there is at least five element presented above that I try to add. I like to diecribe them as Quality of life improvement.
+
+1. Make my life easy when it comes to parsing aguments
+2. Implement a dry-run to keep things under controle
+3. Implement `.rc` because the command as grown bigger and I hate to write long command lines.
+4. Install the script as a full fledge command line that I can use from anymere
+5. Make the Command line extandable to faster collabortion and keep the core as small as possible

@@ -7,7 +7,15 @@
 
 State Machine is a mathematical concept deeply rooted in computer science. Many problems end up being some implementation of it. I dedicated the repository for my exploration with this concept using Python as the programming language.
 
-[You write the help message docopt write the code](./example_docopt/readme.md)
+Working on this project inspired me to write a couple of articles that you can read on Medium (* I included friend links so you won't hit Medium Paywall)
+
+## Tutorial released
+
+* [5 Tips to Customise Python Command-Line Interfaces](https://betterprogramming.pub/5-tips-to-customise-python-command-line-interfaces-691b0b39f610?sk=5ac5a76c740bd04f5881af8a485a68a0)
+
+## In my pipeline
+
+[WIP: You write the help message docopt write the code](./example_docopt/readme.md)
 
 [WIP: Introduction to AsyncoIO]()
 
