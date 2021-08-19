@@ -81,3 +81,6 @@ python -m pip install -e .
 python .\6_extandable.py 1 2 --agg=fancy
 ```
 
+## Other articles
+
+* [No Code Argument Parsing for Command-Line Interfaces with docopt](https://medium.com/codex/no-code-argument-parsing-for-command-line-interfaces-79b17a3813f2?sk=680439c5fc3269c513d6010dd4d5ba8e)

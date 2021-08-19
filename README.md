@@ -13,6 +13,7 @@ Working on this project inspired me to write a couple of articles that you can r
 
 * [5 Tips to Customise Python Command-Line Interfaces](https://betterprogramming.pub/5-tips-to-customise-python-command-line-interfaces-691b0b39f610?sk=5ac5a76c740bd04f5881af8a485a68a0)
 
+* [No Code Argument Parsing for Command-Line Interfaces](https://medium.com/codex/no-code-argument-parsing-for-command-line-interfaces-79b17a3813f2?sk=680439c5fc3269c513d6010dd4d5ba8e)
 ## In my pipeline
 
 [WIP: You write the help message docopt write the code](./example_docopt/readme.md)
